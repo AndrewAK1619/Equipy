@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipy - zarządzaj aktywami swojej firmy</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap -->
+    <script src="node_modules/jquery/dist/jquery.slim.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+
+    <!-- Angular -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+
+    <!-- Application -->
+    <script src="app/index.js"></script>
+    <script src="app/config.js"></script>
+
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/assetServices.js"></script>
+    <script src="app/services/categoryServices.js"></script>
+    <script src="app/services/assignmentServices.js"></script>
+
+    <script src="app/components/users/list/userListController.js"></script>
+    <script src="app/components/users/edit/userEditController.js"></script>
+    <script src="app/components/users/assets/userAssetsController.js"></script>
+    <script src="app/components/assets/list/assetListController.js"></script>
+    <script src="app/components/assets/history/assetHistoryController.js"></script>
+    <script src="app/components/assets/edit/assetEditController.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Equipy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-asset">
+                    <a class="nav-link" href="#!users">Użytkownicy</a>
+                </li>
+                <li class="nav-asset">
+                    <a class="nav-link" href="#!assets">Wyposażenie</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="jumbotron jumbo-custom text-white text-center my-2">
+            <h1 class="text-shadow"><strong>Equipy</strong></h1>
+            <p class="lead text-shadow">System zarządzania wyposażeniem Twojej firmy.</p>
+            <p class="lead text-shadow">Wszystko w jednym miejscu i pod Twoją kontrolą.</p>
+        </div>
+    </main>
+
+    <div ng-view></div>
+
+</body>
+</html>

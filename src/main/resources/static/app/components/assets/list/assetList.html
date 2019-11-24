@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="form">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Nazwa lub Numer seryiny" ng-model="text">
+                    <button class="btn btn-primary mx-1" ng-click="ctrl.search(text)">Szukaj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 5%">#</th>
+                    <th scope="col" style="width: 15%">Nazwa</th>
+                    <th scope="col" style="width: 35%">Opis</th>
+                    <th scope="col" style="width: 15%">Numer</th>
+                    <th scope="col" style="width: 15%">Kategoria</th>
+                    <th scope="col" style="width: 15%">Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="asset in ctrl.assets">
+                    <th scope="row">{{asset.id}}</th>
+                    <td>{{asset.name}}</td>
+                    <td>{{asset.description}}</td>
+                    <td>{{asset.serialNumber}}</td>
+                    <td>{{asset.category}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" title="Edytuj">
+                            <a ng-href="#!asset-edit/{{asset.id}}" class="text-white">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </button>
+                        <button class="btn btn-sm btn-warning" title="Historia wypożyczeń">
+                            <a ng-href="#!asset-history/{{asset.id}}" class="text-white">
+                                <i class="fas fa-history"></i>
+                            </a>
+                        </button>
+                        <button class="btn btn-sm btn-danger" title="Usuń">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <a ng-href="#!asset-add" class="btn btn-primary mb-3">Dodaj wyposażenie</a>
+    </div>
+</div>

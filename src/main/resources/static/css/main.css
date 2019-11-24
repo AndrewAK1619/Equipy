@@ -1,0 +1,14 @@
+.jumbo-custom {
+    background: url('../img/background.jpg') center;
+}
+
+.text-shadow {
+  text-shadow: -5px 0 8px black, 
+  				0 5px 8px black,
+      			5px 0 8px black, 
+      			0 -5px 8px black,
+      			-10px 0 8px black, 
+  				0 10px 8px black,
+      			10px 0 8px black, 
+      			0 -10px 8px black;
+}

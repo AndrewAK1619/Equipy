@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2 ng-if="ctrl.asset.id">Edycja zasobu</h2>
+            <h2 ng-if="!ctrl.asset.id">Nowy zasób</h2>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.msg">
+        <div class="mx-auto">
+            <p class="text-danger">{{ctrl.msg}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="mx-auto col-10 col-md-6">
+            <p ng-if="ctrl.asset.id">Id: {{ctrl.asset.id}}</p>
+            <div class="form-group">
+                <label for="assetNameInput">Nazwa:</label>
+                <input type="text" class="form-control" id="assetNameInput" placeholder="nazwa" ng-model="ctrl.asset.name">
+            </div>
+            <div class="form-group">
+                <label for="serialInput">Numer seryjny:</label>
+                <input type="text" class="form-control" id="serialInput" placeholder="Numer seryjny" ng-model="ctrl.asset.serialNumber">
+            </div>
+            <div class="form-group">
+                <label for="categorySelect">Kategoria:</label>
+                <select class="form-control" id="categorySelect" ng-model="ctrl.asset.category">
+                    <option ng-repeat="category in ctrl.categoryNames" ng-selected="category === ctrl.asset.category">{{category}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="descriptionInput">Opis:</label>
+                <textarea class="form-control" id="descriptionInput" rows="10"
+                          placeholder="opis" ng-model="ctrl.asset.description"></textarea>
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary" ng-if="!ctrl.asset.id" ng-click="ctrl.save()">Dodaj</button>
+                <button type="submit" class="btn btn-primary" ng-if="ctrl.asset.id" ng-click="ctrl.update()">Zapisz</button>
+                <button type="submit" class="btn btn-primary" ng-if="ctrl.asset.id">
+                    <a ng-href="#!asset-history/{{ctrl.asset.id}}" class="text-white">
+                        Historia wynajmu
+                    </a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

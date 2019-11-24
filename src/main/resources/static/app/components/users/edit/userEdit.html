@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2 ng-if="ctrl.user.id">Edycja użytkownika</h2>
+            <h2 ng-if="!ctrl.user.id">Nowy użytkownik</h2>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.msg">
+        <div class="mx-auto">
+            <p class="text-danger">{{ctrl.msg}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="mx-auto col-10 col-md-6">
+            <p>Id: {{ctrl.user.id}}</p>
+            <div class="form-group">
+                <label for="firstNameInput">Imię:</label>
+                <input type="text" class="form-control" id="firstNameInput" placeholder="imię" ng-model="ctrl.user.firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastNameInput">Nazwisko:</label>
+                <input type="text" class="form-control" id="lastNameInput" placeholder="nazwisko" ng-model="ctrl.user.lastName">
+            </div>
+            <div class="form-group">
+                <label for="peselInput">Pesel:</label>
+                <input type="text" class="form-control" id="peselInput" placeholder="pesel" ng-model="ctrl.user.pesel">
+            </div>
+            <div class="form-group mb-3">
+                <button ng-if="!ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.saveUser()">Zapisz</button>
+                <button ng-if="ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.updateUser()">Aktualizuj</button>
+            </div>
+        </form>
+    </div>
+</div>

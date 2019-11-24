@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2>Wyposażenie pracownika</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <p>Imię: {{ctrl.user.firstName}}</p>
+                <p>Nazwisko: {{ctrl.user.lastName}}</p>
+                <p>Pesel: {{ctrl.user.pesel}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover" ng-if="ctrl.assignments.length">
+                <thead>
+                <tr>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Numer seryjny</th>
+                    <th scope="col">Data wypożyczenia</th>
+                    <th scope="col">Data zwrotu</th>
+                    <th scope="col" class="text-center">Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="assignment in ctrl.assignments">
+                    <td>{{assignment.assetName}}</td>
+                    <td>{{assignment.assetSerialNumber}}</td>
+                    <td>{{assignment.start | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td>{{assignment.end | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-warning text-white" title="Zwróć"
+                                ng-if="!assignment.end" ng-click="ctrl.finishAssignment(assignment)">
+                            <i class="fas fa-undo-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-center" ng-if="!ctrl.assignments.length">
+                <h1>Brak wypożyczeń</h1>
+            </div>
+        </div>
+    </div>
+</div>
